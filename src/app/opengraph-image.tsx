@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { profile } from "@/content/profile";
 
-export const alt = `${profile.name} — ${profile.title}`;
+export const alt = `${profile.name} · ${profile.title}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -34,7 +34,7 @@ export default function OpengraphImage() {
           </div>
           <div style={{ marginTop: 20, fontSize: 40, color: "#01c16a" }}>{profile.title}</div>
           <div style={{ marginTop: 16, fontSize: 28, color: "#9ca3af" }}>
-            React · Next.js · React Native · Node.js · AI integrations
+            Next.js · React · Node.js · FastAPI · PostgreSQL
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#9ca3af" }}>

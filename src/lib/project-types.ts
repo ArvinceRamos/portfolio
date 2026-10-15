@@ -1,7 +1,6 @@
 export const projectTypes = [
-  "A web app",
-  "A mobile app",
-  "An AI feature or chatbot",
-  "A full-time / contract role",
+  "A job opening",
+  "A question about one of my projects",
+  "Feedback on my code",
   "Something else",
 ] as const;

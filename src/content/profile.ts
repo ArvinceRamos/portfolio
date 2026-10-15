@@ -11,26 +11,23 @@ export const profile = {
   linkedin: "",
   resume: "/resume.pdf",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arvinceramos.vercel.app",
-  availability: "Available for remote roles & freelance",
-  replyTime: "Replies within 24 hours",
-  hours: "Flexible hours to overlap with US, EU and AU teams",
+  availability: "Open to full-time roles",
   description:
-    "Full stack developer in Cebu, Philippines building web and mobile apps end to end with React, Next.js, React Native, Node.js, Firebase, Supabase and LLM integrations.",
+    "Arvince Ramos, a junior full stack developer from Cebu, Philippines. I build web apps with Next.js, React, Node.js, FastAPI and Postgres, and I write about what broke along the way.",
   bio: [
-    "I'm a full stack developer and BS Information Technology graduate from the University of Cebu. I like owning a product from the first database table to the last pixel — web, mobile and the API in between.",
-    "Lately that means AI features: chatbots, voice assistants and LLM integrations that are useful without burning through an API budget. I led my capstone as project manager while building it solo, and I've shipped work for a remote US client and an IT company in Cebu.",
+    "I finished my BS in Information Technology at the University of Cebu in June 2026. Before that I did a 1,000-hour internship at an IT company in Cebu, where I built their sales tracker.",
+    "I learn best by building things that are a bit too big for me. A marketplace with its own ledger, a fitness app with hundreds of tests, an AI trip planner that runs on free services. Each one forced me to read docs I didn't understand yet, break things and fix them.",
+    "I'm looking for a team where I can keep doing that, with people who know more than I do.",
   ],
   education: {
     degree: "BS Information Technology",
     school: "University of Cebu, Cebu City",
-    year: "Graduated June 2026",
+    year: "June 2026",
   },
   languages: ["English", "Filipino", "Cebuano"],
 };
 
-export const stats = [
-  { value: "4", label: "Shipped projects" },
-  { value: "1", label: "Remote US client" },
-  { value: "1,000", label: "OJT hours" },
-  { value: "44", label: "Test files + CI" },
+export const aiNote = [
+  "I build with AI coding tools, mostly Claude Code. It writes a lot of the first drafts.",
+  "My job is the rest: deciding what to build, reading every change, running the tests, debugging when it's wrong (it often is) and rewriting what I don't understand until I do. If something is on this site, I should be able to walk you through it. If I can't, that's a gap I'm working on, and the known issues on each project are honest about where things stand.",
 ];

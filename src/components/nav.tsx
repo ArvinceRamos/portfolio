@@ -6,8 +6,8 @@ import { Menu, X } from "lucide-react";
 import { buttonStyles, cn, Container } from "./ui";
 
 const links = [
-  { href: "/#work", label: "Work" },
-  { href: "/#services", label: "Services" },
+  { href: "/#work", label: "Projects" },
+  { href: "/#ai", label: "How I use AI" },
   { href: "/#experience", label: "Experience" },
   { href: "/#about", label: "About" },
 ];
@@ -43,7 +43,7 @@ export function Nav() {
         <Link
           href="/"
           className="font-mono text-sm font-semibold tracking-tight text-fg-strong"
-          aria-label="Arvince Ramos — home"
+          aria-label="Arvince Ramos, home"
           onClick={() => setOpen(false)}
         >
           AR<span className="text-accent">.</span>
@@ -60,7 +60,7 @@ export function Nav() {
             </Link>
           ))}
           <Link href="/#contact" className={cn(buttonStyles.primary, "h-9 px-4")}>
-            Hire me
+            Contact
           </Link>
         </nav>
 
@@ -94,7 +94,7 @@ export function Nav() {
               onClick={() => setOpen(false)}
               className={cn(buttonStyles.primary, "mt-3")}
             >
-              Hire me
+              Contact
             </Link>
           </Container>
         </nav>

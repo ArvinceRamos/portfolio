@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { profile } from "@/content/profile";
 import { buttonStyles, Container, GitHubIcon, LinkedInIcon } from "./ui";
@@ -14,11 +13,11 @@ export function Footer() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <p className="max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)] leading-[1] font-semibold tracking-[-0.045em] text-fg-strong">
-            Let&apos;s build something <span className="text-accent">useful.</span>
+            Have a role I might fit? <span className="text-accent">Send me an email.</span>
           </p>
-          <Link href="/#contact" className={buttonStyles.primary}>
-            Start a project <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
+          <a href={`mailto:${profile.email}`} className={buttonStyles.primary}>
+            {profile.email} <ArrowRight className="size-4" aria-hidden="true" />
+          </a>
         </div>
 
         <div className="mt-16 flex flex-col-reverse items-start justify-between gap-6 border-t border-line pt-8 text-sm text-muted sm:flex-row sm:items-center">

@@ -33,7 +33,7 @@ export function SectionHeading({
     <div className="mb-12 max-w-2xl md:mb-16">
       <p className="eyebrow">
         <span aria-hidden="true">{"// "}</span>
-        {index} — {label}
+        {index} / {label}
       </p>
       <h2
         id={id}

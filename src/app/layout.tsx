@@ -10,7 +10,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
   title: {
-    default: `${profile.name} — ${profile.title}`,
+    default: `${profile.name} · ${profile.title}`,
     template: `%s · ${profile.name}`,
   },
   description: profile.description,
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     "full stack developer",
     "React developer",
     "Next.js developer",
-    "React Native developer",
-    "AI integration",
-    "freelance developer Philippines",
+    "FastAPI developer",
+    "junior developer Philippines",
+    "PostgreSQL",
     "Cebu developer",
   ],
   authors: [{ name: profile.name, url: profile.siteUrl }],
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: profile.name,
-    title: `${profile.name} — ${profile.title}`,
+    title: `${profile.name} · ${profile.title}`,
     description: profile.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.title}`,
+    title: `${profile.name} · ${profile.title}`,
     description: profile.description,
   },
 };

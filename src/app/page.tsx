@@ -1,5 +1,5 @@
 import { Hero } from "@/components/hero";
-import { About, Experience, Services, Stack, Work } from "@/components/sections";
+import { About, AiNote, Experience, OtherWork, Stack, Work } from "@/components/sections";
 import { Contact } from "@/components/contact";
 
 export default function Home() {
@@ -7,7 +7,8 @@ export default function Home() {
     <>
       <Hero />
       <Work />
-      <Services />
+      <OtherWork />
+      <AiNote />
       <Experience />
       <Stack />
       <About />

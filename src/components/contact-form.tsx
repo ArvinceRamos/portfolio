@@ -51,7 +51,7 @@ export function ContactForm() {
         <CheckCircle2 className="size-10 text-accent" aria-hidden="true" />
         <h3 className="mt-5 text-2xl font-semibold tracking-tight text-fg-strong">Message sent.</h3>
         <p className="mt-2 text-muted">
-          Thanks for reaching out — I&apos;ll get back to you within 24 hours.
+          Thanks for writing. I&apos;ll reply as soon as I can.
         </p>
         <button
           type="button"
@@ -107,7 +107,7 @@ export function ContactForm() {
 
       <div className="mt-5">
         <label htmlFor="type" className={labelCls}>
-          What can I help with?
+          What&apos;s this about?
         </label>
         <select id="type" name="type" required defaultValue={projectTypes[0]} className={field}>
           {projectTypes.map((t) => (
@@ -130,7 +130,7 @@ export function ContactForm() {
           maxLength={4000}
           rows={5}
           className={cn(field, "resize-y")}
-          placeholder="What are you building, and what's your timeline?"
+          placeholder="Write your message here"
         />
       </div>
 

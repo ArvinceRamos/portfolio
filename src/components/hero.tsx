@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
-import { profile, stats } from "@/content/profile";
+import { profile } from "@/content/profile";
+
+const facts = [
+  { value: "3", label: "Projects live online" },
+  { value: "1", label: "Client project (US)" },
+  { value: "1,000", label: "Internship hours" },
+  { value: "2026", label: "BSIT graduate" },
+];
 import { buttonStyles, Container, GitHubIcon } from "./ui";
 
 export function Hero() {
@@ -23,19 +30,20 @@ export function Hero() {
           </p>
 
           <h1 className="mt-7 animate-fade-up text-[clamp(2.6rem,6.4vw,5rem)] leading-[1.02] font-semibold tracking-[-0.045em] text-fg-strong [animation-delay:80ms]">
-            I build web &amp; mobile apps <span className="text-muted">end to end</span> —{" "}
-            <span className="text-accent">with AI built in.</span>
+            I build full stack web apps.{" "}
+            <span className="text-muted">Usually ones that are</span>{" "}
+            <span className="text-accent">a bit too hard for me.</span>
           </h1>
 
           <p className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-muted [animation-delay:160ms]">
-            I&apos;m {profile.name}, a full stack developer in Cebu, Philippines. I ship React and
-            Next.js web apps, React Native mobile apps and Node.js backends on Firebase or Supabase —
-            plus LLM features that stay cheap to run.
+            I&apos;m Arvince, a junior developer from Cebu, Philippines. I work with Next.js, React,
+            Node.js, FastAPI and Postgres. I&apos;m looking for a full stack, backend or frontend role,
+            remote or here in Cebu.
           </p>
 
           <div className="mt-9 flex animate-fade-up flex-wrap items-center gap-3 [animation-delay:240ms]">
-            <Link href="/#contact" className={buttonStyles.primary}>
-              Start a project <ArrowRight className="size-4" aria-hidden="true" />
+            <Link href="/#work" className={buttonStyles.primary}>
+              See my projects <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <a href={profile.resume} download className={buttonStyles.secondary}>
               <Download className="size-4" aria-hidden="true" /> Download résumé
@@ -73,7 +81,7 @@ export function Hero() {
 
       <Container>
         <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
-          {stats.map((s) => (
+          {facts.map((s) => (
             <div key={s.label} className="flex flex-col-reverse bg-bg px-5 py-6 md:px-6">
               <dt className="mt-2 font-mono text-[11px] tracking-[0.14em] text-muted uppercase">
                 {s.label}
@@ -99,12 +107,12 @@ function TerminalCard() {
       <p>
         <span className="text-accent">$</span> whoami
       </p>
-      <p className="text-muted">full stack developer · cebu, ph</p>
+      <p className="text-muted">junior full stack dev · cebu, ph</p>
       <p className="mt-1.5">
         <span className="text-accent">$</span> status
       </p>
       <p className="text-muted">
-        open to remote roles + freelance
+        open to full-time roles
         <span className="ml-0.5 inline-block animate-blink text-accent" aria-hidden="true">
           ▍
         </span>

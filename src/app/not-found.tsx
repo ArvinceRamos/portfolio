@@ -8,7 +8,7 @@ export default function NotFound() {
         <span aria-hidden="true">{"// "}</span>404
       </p>
       <h1 className="mt-4 text-5xl font-semibold tracking-tight text-fg-strong">Page not found.</h1>
-      <p className="mt-4 text-muted">That page doesn&apos;t exist — but my work does.</p>
+      <p className="mt-4 text-muted">That page doesn&apos;t exist. Maybe it moved, or the link has a typo.</p>
       <Link href="/" className={`${buttonStyles.primary} mt-8`}>
         Back home
       </Link>

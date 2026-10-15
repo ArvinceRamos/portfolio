@@ -1,16 +1,14 @@
 import Image from "next/image";
-import { Bot, Code2, Smartphone, Clock, MessageSquare, Globe2 } from "lucide-react";
-import { projects } from "@/content/projects";
+import { Lock } from "lucide-react";
+import { otherWork, projects } from "@/content/projects";
 import { experience } from "@/content/experience";
-import { marqueeRows, process, services, skillGroups } from "@/content/skills";
-import { profile } from "@/content/profile";
+import { marqueeRows, skillGroups } from "@/content/skills";
+import { aiNote, profile } from "@/content/profile";
+import { CrmMock } from "./crm-mock";
 import { FadeIn } from "./fade-in";
 import { ProjectCard } from "./project-card";
 import { Spotlight } from "./spotlight";
-import { cn, Section, SectionHeading } from "./ui";
-
-// Bento layout: wide / narrow, then narrow / wide on large screens.
-const workSpans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
+import { cn, Section, SectionHeading, Tag } from "./ui";
 
 export function Work() {
   return (
@@ -18,14 +16,14 @@ export function Work() {
       <SectionHeading
         id="work-title"
         index="01"
-        label="Selected work"
-        title="Real products for real users."
-        intro="A client app, an internal business tool, an AI assistant and a product I'm building now. Each one has a short case study."
+        label="Projects"
+        title="Three projects I built to learn."
+        intro="All three are live. Each one has a write-up with how it works, what was hard, how I used AI and what is still broken."
       />
-      <div className="grid gap-5 lg:grid-cols-12">
+      <div className="space-y-6">
         {projects.map((p, i) => (
-          <FadeIn key={p.slug} delay={(i % 2) * 0.08} className={workSpans[i] ?? "lg:col-span-6"}>
-            <ProjectCard project={p} />
+          <FadeIn key={p.slug}>
+            <ProjectCard project={p} flip={i % 2 === 1} />
           </FadeIn>
         ))}
       </div>
@@ -33,75 +31,79 @@ export function Work() {
   );
 }
 
-const serviceIcons = [Code2, Smartphone, Bot];
-
-export function Services() {
+export function OtherWork() {
   return (
-    <Section id="services" aria-labelledby="services-title" className="border-t border-line/60">
+    <Section id="other-work" aria-labelledby="other-title" className="border-t border-line/60">
       <SectionHeading
-        id="services-title"
+        id="other-title"
         index="02"
-        label="What I can build for you"
-        title={
-          <>
-            One developer, <span className="text-muted">the whole stack.</span>
-          </>
-        }
-        intro="Front end, back end, mobile and AI — so you don't have to coordinate three freelancers for one product."
+        label="Other work"
+        title="Work I did for other people."
+        intro="A small freelance job and my internship. I can't link the code for either, so here is what I built."
       />
-      <div className="grid gap-5 md:grid-cols-3">
-        {services.map((s, i) => {
-          const Icon = serviceIcons[i];
-          return (
-            <FadeIn key={s.title} delay={i * 0.08}>
-              <Spotlight className="h-full rounded-3xl border border-line bg-surface/40 p-7">
-                <div className="relative z-10">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl border border-line bg-bg text-accent">
-                    <Icon className="size-5" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-fg-strong">{s.title}</h3>
-                  <p className="mt-3 leading-relaxed text-muted">{s.body}</p>
-                  <ul className="mt-6 space-y-2 border-t border-line pt-5 text-sm">
-                    {s.points.map((pt) => (
-                      <li key={pt} className="flex items-center gap-2.5 text-fg">
-                        <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-                        {pt}
-                      </li>
-                    ))}
-                  </ul>
+      <div className="grid gap-5 md:grid-cols-2">
+        {otherWork.map((w, i) => (
+          <FadeIn key={w.title} delay={i * 0.08}>
+            <Spotlight className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface/40">
+              <div className="relative z-10 aspect-[16/9] overflow-hidden border-b border-line bg-surface">
+                {w.image ? (
+                  <Image
+                    src={w.image.src}
+                    alt={w.image.alt}
+                    fill
+                    sizes="(min-width: 768px) 560px, 100vw"
+                    className="object-cover object-top"
+                  />
+                ) : (
+                  <CrmMock />
+                )}
+              </div>
+              <div className="relative z-10 flex flex-1 flex-col p-6 md:p-7">
+                <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] tracking-wide text-muted uppercase">
+                  <span>{w.period}</span>
+                  <span aria-hidden="true" className="text-line-strong">/</span>
+                  <span>{w.role}</span>
+                  {w.isPrivate ? (
+                    <span className="inline-flex items-center gap-1 rounded-full border border-line px-2 py-0.5 normal-case">
+                      <Lock className="size-3" aria-hidden="true" /> Private
+                    </span>
+                  ) : null}
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-fg-strong">{w.title}</h3>
+                <p className="mt-1 text-sm text-muted">{w.org}</p>
+                <p className="mt-4 leading-relaxed text-fg">{w.summary}</p>
+                <ul className="mt-4 space-y-2">
+                  {w.points.map((pt) => (
+                    <li key={pt} className="flex gap-3 text-sm leading-relaxed text-fg/90">
+                      <span className="mt-2.5 h-px w-3 shrink-0 bg-line-strong" aria-hidden="true" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-6">
+                  {w.tags.map((t) => (
+                    <Tag key={t}>{t}</Tag>
+                  ))}
                 </div>
-              </Spotlight>
-            </FadeIn>
-          );
-        })}
+              </div>
+            </Spotlight>
+          </FadeIn>
+        ))}
       </div>
+    </Section>
+  );
+}
 
-      <div id="process" className="mt-24">
-        <p className="eyebrow">
-          <span aria-hidden="true">{"// "}</span>How I work
-        </p>
-        <ol className="mt-8 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-4">
-          {process.map((step, i) => (
-            <li key={step.title} className="bg-bg p-6 md:p-7">
-              <span className="font-mono text-sm text-accent">0{i + 1}</span>
-              <h3 className="mt-3 text-lg font-semibold text-fg-strong">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
-            </li>
+export function AiNote() {
+  return (
+    <Section id="ai" aria-labelledby="ai-title" className="border-t border-line/60">
+      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <SectionHeading id="ai-title" index="03" label="How I use AI" title="Yes, I use AI. Here's how." />
+        <div className="space-y-5 text-lg leading-relaxed text-fg/90 lg:pt-10">
+          {aiNote.map((p) => (
+            <p key={p.slice(0, 24)}>{p}</p>
           ))}
-        </ol>
-        <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
-          <li className="flex items-center gap-2">
-            <Clock className="size-4 text-accent" aria-hidden="true" /> {profile.replyTime}
-          </li>
-          <li className="flex items-center gap-2">
-            <Globe2 className="size-4 text-accent" aria-hidden="true" /> Based in Cebu ({profile.timezone}) ·{" "}
-            {profile.hours}
-          </li>
-          <li className="flex items-center gap-2">
-            <MessageSquare className="size-4 text-accent" aria-hidden="true" /> Clear written updates in
-            English
-          </li>
-        </ul>
+        </div>
       </div>
     </Section>
   );
@@ -110,15 +112,10 @@ export function Services() {
 export function Experience() {
   return (
     <Section id="experience" aria-labelledby="experience-title" className="border-t border-line/60">
-      <SectionHeading
-        id="experience-title"
-        index="03"
-        label="Experience"
-        title="Where I've shipped."
-      />
+      <SectionHeading id="experience-title" index="04" label="Experience" title="Where I've worked." />
       <ol className="relative">
         {experience.map((job, i) => (
-          <li key={job.company} className="group grid gap-3 md:grid-cols-[220px_1fr] md:gap-10">
+          <li key={job.company} className="grid gap-3 md:grid-cols-[220px_1fr] md:gap-10">
             <p className="pt-1 font-mono text-xs tracking-wide text-muted uppercase md:text-right">
               {job.period}
             </p>
@@ -163,9 +160,10 @@ export function Stack() {
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeading
           id="stack-title"
-          index="04"
+          index="05"
           label="Stack"
-          title="Tools I use every week."
+          title="What I've used in these projects."
+          intro="Not a list of everything I've heard of. Each of these is in at least one of the projects above."
         />
       </div>
 
@@ -220,7 +218,7 @@ export function About() {
           </div>
         </FadeIn>
         <div>
-          <SectionHeading id="about-title" index="05" label="About" title="Hi, I'm Arvince." />
+          <SectionHeading id="about-title" index="06" label="About" title="Hi, I'm Arvince." />
           <div className="-mt-4 space-y-5 text-lg leading-relaxed text-fg/90">
             {profile.bio.map((p) => (
               <p key={p.slice(0, 20)}>{p}</p>
@@ -240,7 +238,7 @@ export function About() {
               <dt className="eyebrow text-muted">Based in</dt>
               <dd className="mt-2 text-fg">
                 {profile.location}
-                <span className="block text-sm text-muted">{profile.timezone} · open to remote</span>
+                <span className="block text-sm text-muted">Open to remote or on-site in Cebu</span>
               </dd>
             </div>
             <div>

@@ -23,10 +23,10 @@ export function Contact() {
             label="Contact"
             title={
               <>
-                Have a project or a role in mind? <span className="text-accent">Let&apos;s talk.</span>
+                Get in <span className="text-accent">touch.</span>
               </>
             }
-            intro="Tell me what you're building — a new app, a feature, or a full-time position. I'll reply with next steps."
+            intro="Job openings, questions about a project, or feedback on my code. Email is the fastest way to reach me."
           />
           <ul className="-mt-4 space-y-3">
             {links.map(({ href, label, icon: Icon, external }) => (
@@ -45,7 +45,7 @@ export function Contact() {
             ))}
           </ul>
           <p className="mt-8 flex items-center gap-2 text-sm text-muted">
-            <Clock className="size-4 text-accent" aria-hidden="true" /> {profile.replyTime} · Cebu (
+            <Clock className="size-4 text-accent" aria-hidden="true" /> Based in Cebu, Philippines (
             {profile.timezone})
           </p>
         </div>

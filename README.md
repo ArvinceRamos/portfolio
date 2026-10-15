@@ -17,10 +17,10 @@ All text lives in `src/content/`, so you don't need to touch components to updat
 
 | File | What it holds |
 | --- | --- |
-| `profile.ts` | Name, email, GitHub/LinkedIn, availability line, bio, stats |
-| `projects.ts` | Project cards and case studies (add the RvFit live URL here) |
+| `profile.ts` | Name, email, GitHub/LinkedIn, availability line, bio, "How I use AI" note |
+| `projects.ts` | The 3 main projects (write-ups, known issues) and the "other work" cards |
 | `experience.ts` | Work history timeline |
-| `skills.ts` | Stack, services and "How I work" steps |
+| `skills.ts` | Stack list and the scrolling tech rows |
 
 Images live in `public/images/`, and the résumé is `public/resume.pdf`.
 

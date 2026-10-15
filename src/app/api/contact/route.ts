@@ -32,7 +32,7 @@ export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
   if (rateLimited(ip)) {
     return NextResponse.json(
-      { error: "Too many messages — please try again in a few minutes." },
+      { error: "Too many messages. Please try again in a few minutes." },
       { status: 429 },
     );
   }
@@ -59,7 +59,7 @@ export async function POST(req: Request) {
     from: process.env.CONTACT_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>",
     to: process.env.CONTACT_TO_EMAIL ?? profile.email,
     replyTo: email,
-    subject: `Portfolio: ${type} — ${name}`,
+    subject: `Portfolio: ${type} from ${name}`,
     text: `From: ${name} <${email}>\nAbout: ${type}\n\n${message}`,
   });
 
