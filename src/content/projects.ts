@@ -158,7 +158,7 @@ export const projects: Project[] = [
           body: "I did a security pass that removed the anon role's default table grants and added checks to existing tables. I used NOT VALID constraints so old rows wouldn't break the migration, while new rows still get checked.",
         },
       ],
-      ai: "Built with a lot of help from Claude Code: 15 of the 25 commits have a Claude co-author line. I wrote what each part should do, reviewed the changes and ran the tests. I'm still going through parts of it until I can explain all of it without notes.",
+      ai: "Built with a lot of help from Claude Code. I wrote what each part should do, reviewed the changes and ran the tests. I'm still going through parts of it until I can explain all of it without notes.",
       issues: [
         "No end-to-end tests. The 667 tests are unit tests.",
         "No app-level rate limiting.",
