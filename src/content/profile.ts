@@ -29,5 +29,6 @@ export const profile = {
 
 export const aiNote = [
   "I build with AI coding tools, mostly Claude Code. It writes a lot of the first drafts.",
-  "My job is the rest: deciding what to build, reading every change, running the tests, debugging when it's wrong (it often is) and rewriting what I don't understand until I do. If something is on this site, I should be able to walk you through it. If I can't, that's a gap I'm working on, and the known issues on each project are honest about where things stand.",
+  "I split big features into small steps and give it written rules to follow. The marketplace was built in 15 phases with a CLAUDE.md file in the repo. Then I do the rest: read every change, run the tests, debug when it's wrong (it often is) and rewrite what I don't understand until I do.",
+  "If something is on this site, I should be able to walk you through it. If I can't yet, that's a gap I'm working on. Each project also lists what's still broken.",
 ];
